@@ -166,8 +166,9 @@ Crea una funzione chiamata "average" che riceve un array come parametro e ne rit
 function average(array){
     return array.filter(function(val){
         return Number.isInteger(val);
-    }).reduce(function(sum, val){
-        sum += val;
+    }).reduce(function(sum, val, index, array){
+        console.log();
+        return sum/(index == 1 ? array.length : 1) + val/array.length;
     }) ;
 }
 
@@ -178,6 +179,15 @@ console.log(`average: ${average([4, 6, 8, '', 2])}`);
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+function longest(stringhe){
+    var valore = stringhe.reduce((val1 , val2, index) => 
+         val1.length >= val2.length ? val1 : val2
+    );
+    return valore;
+}
+
+console.log(`stringa più lunga: ${longest(['prova1','prova123','prova12'])}`);
 
 /* EXTRA 9
  Crea una funzione per creare un filtro anti-spam per la tua casella email. La funzione riceve un parametro stringa chiamato "emailContent", e torna un valore booleano.
@@ -201,3 +211,15 @@ console.log(`average: ${average([4, 6, 8, '', 2])}`);
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+function matrixGenerator(x,y){
+    var array = [];
+    for(var i = 0; i < x; i++){
+        for(var j = 0; j<y; j++){
+            array.push(`${i}${j}`);
+        }
+    }
+    console.table(array);
+}
+
+matrixGenerator(4,5);
